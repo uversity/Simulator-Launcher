@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33D4F0D81A04586900B0BAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0D71A04586900B0BAE6 /* AppDelegate.swift */; };
+		33D4F0DA1A04586900B0BAE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0D91A04586900B0BAE6 /* ViewController.swift */; };
+		33D4F0DC1A04586900B0BAE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D4F0DB1A04586900B0BAE6 /* Images.xcassets */; };
+		33D4F0DF1A04586900B0BAE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D4F0DD1A04586900B0BAE6 /* Main.storyboard */; };
+		33D4F0EB1A04586900B0BAE6 /* Simulator_LauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0EA1A04586900B0BAE6 /* Simulator_LauncherTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33D4F0E51A04586900B0BAE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33D4F0CA1A04586900B0BAE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33D4F0D11A04586900B0BAE6;
+			remoteInfo = "Simulator Launcher";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		33D4F0D21A04586900B0BAE6 /* Simulator Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simulator Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D4F0D61A04586900B0BAE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33D4F0D71A04586900B0BAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33D4F0D91A04586900B0BAE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33D4F0DB1A04586900B0BAE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		33D4F0DE1A04586900B0BAE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33D4F0E41A04586900B0BAE6 /* Simulator LauncherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simulator LauncherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D4F0E91A04586900B0BAE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33D4F0EA1A04586900B0BAE6 /* Simulator_LauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simulator_LauncherTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33D4F0CF1A04586900B0BAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D4F0E11A04586900B0BAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33D4F0C91A04586900B0BAE6 = {
+			isa = PBXGroup;
+			children = (
+				33D4F0D41A04586900B0BAE6 /* Simulator Launcher */,
+				33D4F0E71A04586900B0BAE6 /* Simulator LauncherTests */,
+				33D4F0D31A04586900B0BAE6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33D4F0D31A04586900B0BAE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33D4F0D21A04586900B0BAE6 /* Simulator Launcher.app */,
+				33D4F0E41A04586900B0BAE6 /* Simulator LauncherTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33D4F0D41A04586900B0BAE6 /* Simulator Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				33D4F0D71A04586900B0BAE6 /* AppDelegate.swift */,
+				33D4F0D91A04586900B0BAE6 /* ViewController.swift */,
+				33D4F0DB1A04586900B0BAE6 /* Images.xcassets */,
+				33D4F0DD1A04586900B0BAE6 /* Main.storyboard */,
+				33D4F0D51A04586900B0BAE6 /* Supporting Files */,
+			);
+			path = "Simulator Launcher";
+			sourceTree = "<group>";
+		};
+		33D4F0D51A04586900B0BAE6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33D4F0D61A04586900B0BAE6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33D4F0E71A04586900B0BAE6 /* Simulator LauncherTests */ = {
+			isa = PBXGroup;
+			children = (
+				33D4F0EA1A04586900B0BAE6 /* Simulator_LauncherTests.swift */,
+				33D4F0E81A04586900B0BAE6 /* Supporting Files */,
+			);
+			path = "Simulator LauncherTests";
+			sourceTree = "<group>";
+		};
+		33D4F0E81A04586900B0BAE6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33D4F0E91A04586900B0BAE6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33D4F0D11A04586900B0BAE6 /* Simulator Launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D4F0EE1A04586900B0BAE6 /* Build configuration list for PBXNativeTarget "Simulator Launcher" */;
+			buildPhases = (
+				33D4F0CE1A04586900B0BAE6 /* Sources */,
+				33D4F0CF1A04586900B0BAE6 /* Frameworks */,
+				33D4F0D01A04586900B0BAE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simulator Launcher";
+			productName = "Simulator Launcher";
+			productReference = 33D4F0D21A04586900B0BAE6 /* Simulator Launcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33D4F0E31A04586900B0BAE6 /* Simulator LauncherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D4F0F11A04586900B0BAE6 /* Build configuration list for PBXNativeTarget "Simulator LauncherTests" */;
+			buildPhases = (
+				33D4F0E01A04586900B0BAE6 /* Sources */,
+				33D4F0E11A04586900B0BAE6 /* Frameworks */,
+				33D4F0E21A04586900B0BAE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33D4F0E61A04586900B0BAE6 /* PBXTargetDependency */,
+			);
+			name = "Simulator LauncherTests";
+			productName = "Simulator LauncherTests";
+			productReference = 33D4F0E41A04586900B0BAE6 /* Simulator LauncherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33D4F0CA1A04586900B0BAE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Uversity;
+				TargetAttributes = {
+					33D4F0D11A04586900B0BAE6 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					33D4F0E31A04586900B0BAE6 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 33D4F0D11A04586900B0BAE6;
+					};
+				};
+			};
+			buildConfigurationList = 33D4F0CD1A04586900B0BAE6 /* Build configuration list for PBXProject "Simulator Launcher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33D4F0C91A04586900B0BAE6;
+			productRefGroup = 33D4F0D31A04586900B0BAE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33D4F0D11A04586900B0BAE6 /* Simulator Launcher */,
+				33D4F0E31A04586900B0BAE6 /* Simulator LauncherTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33D4F0D01A04586900B0BAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D4F0DC1A04586900B0BAE6 /* Images.xcassets in Resources */,
+				33D4F0DF1A04586900B0BAE6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D4F0E21A04586900B0BAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33D4F0CE1A04586900B0BAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D4F0DA1A04586900B0BAE6 /* ViewController.swift in Sources */,
+				33D4F0D81A04586900B0BAE6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D4F0E01A04586900B0BAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D4F0EB1A04586900B0BAE6 /* Simulator_LauncherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33D4F0E61A04586900B0BAE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33D4F0D11A04586900B0BAE6 /* Simulator Launcher */;
+			targetProxy = 33D4F0E51A04586900B0BAE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33D4F0DD1A04586900B0BAE6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33D4F0DE1A04586900B0BAE6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33D4F0EC1A04586900B0BAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33D4F0ED1A04586900B0BAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		33D4F0EF1A04586900B0BAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Simulator Launcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33D4F0F01A04586900B0BAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Simulator Launcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		33D4F0F21A04586900B0BAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Simulator LauncherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simulator Launcher.app/Contents/MacOS/Simulator Launcher";
+			};
+			name = Debug;
+		};
+		33D4F0F31A04586900B0BAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Simulator LauncherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simulator Launcher.app/Contents/MacOS/Simulator Launcher";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33D4F0CD1A04586900B0BAE6 /* Build configuration list for PBXProject "Simulator Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D4F0EC1A04586900B0BAE6 /* Debug */,
+				33D4F0ED1A04586900B0BAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D4F0EE1A04586900B0BAE6 /* Build configuration list for PBXNativeTarget "Simulator Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D4F0EF1A04586900B0BAE6 /* Debug */,
+				33D4F0F01A04586900B0BAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		33D4F0F11A04586900B0BAE6 /* Build configuration list for PBXNativeTarget "Simulator LauncherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D4F0F21A04586900B0BAE6 /* Debug */,
+				33D4F0F31A04586900B0BAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33D4F0CA1A04586900B0BAE6 /* Project object */;
+}
