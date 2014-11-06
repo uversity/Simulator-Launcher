@@ -8,6 +8,11 @@
 
 import Cocoa
 
+enum DefaultsKeys: String {
+    case AppPath = "AppPath"
+    case Device = "Device"
+}
+
 class LauncherViewController: NSViewController {
     
     @IBOutlet weak var appLabel: NSTextField!
@@ -33,6 +38,27 @@ class LauncherViewController: NSViewController {
         launchButton.enabled = false
         devicePopUp.removeAllItems()
         devicePopUp.addItemsWithTitles(devices.map { $0.displayName } )
+        
+        loadLastLaunchInfo()
+    }
+    
+    func loadLastLaunchInfo() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        appPath = defaults.objectForKey(DefaultsKeys.AppPath.rawValue) as String?
+        if let deviceTitle = defaults.objectForKey(DefaultsKeys.Device.rawValue) as? String {
+            let index = devicePopUp.indexOfItemWithTitle(deviceTitle)
+            if index >= 0 {
+                devicePopUp.selectItemAtIndex(index)
+            }
+        }
+    }
+    
+    func saveLaunchInfo() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(appPath, forKey: DefaultsKeys.AppPath.rawValue)
+        defaults.setObject(devicePopUp.titleOfSelectedItem, forKey: DefaultsKeys.Device.rawValue)
+        
+        defaults.synchronize()
     }
 
     @IBAction func selectAppClicked(sender: NSButton) {
@@ -54,14 +80,9 @@ class LauncherViewController: NSViewController {
     @IBAction func launchClicked(sender: NSButton) {
         if let path = appPath {
             let device = devices[devicePopUp.indexOfSelectedItem]
-            launchSimulator(appPath: path, device: device)
+            SimulatorLauncher.launch(path: path, device: device)
+            saveLaunchInfo()
         }
-    }
-    
-    func launchSimulator(#appPath: String, device: Device) {
-        let arguments = ["launch", appPath, "--devicetypeid", device.rawValue, "--exit"]
-        let launchPath = NSBundle.mainBundle().pathForResource("ios-sim", ofType: nil)
-        NSTask.launchedTaskWithLaunchPath(launchPath!, arguments: arguments)
     }
 
 }
