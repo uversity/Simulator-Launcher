@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class LauncherViewController: NSViewController {
     
     @IBOutlet weak var appLabel: NSTextField!
     
