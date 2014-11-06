@@ -10,13 +10,10 @@ import Foundation
 
 class SimulatorLauncher {
     
-    class func launch(#path: String, device: Device, iOSVersion: String? = nil) {
-        var deviceTypeID = device.rawValue
-        if let version = iOSVersion {
-            deviceTypeID += ", \(version)"
-        }
+    class func launch(#info: AppInfo, device: Device) {
+        let deviceTypeID = "\(device.rawValue), \(info.iOSVersion)"
         
-        let arguments = ["launch", path, "--devicetypeid", deviceTypeID, "--exit"]
+        let arguments = ["launch", info.path, "--devicetypeid", deviceTypeID, "--exit"]
         let launchPath = NSBundle.mainBundle().pathForResource("ios-sim", ofType: nil)
         NSTask.launchedTaskWithLaunchPath(launchPath!, arguments: arguments)
     }

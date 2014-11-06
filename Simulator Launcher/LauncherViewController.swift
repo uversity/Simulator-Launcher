@@ -17,16 +17,17 @@ class LauncherViewController: NSViewController {
     
     @IBOutlet weak var appLabel: NSTextField!
     
-    var appPath: String? {
+    var appInfo: AppInfo? {
         didSet {
-            if let path = appPath {
-                appLabel.stringValue = path
+            if let info = appInfo {
+                appLabel.stringValue = "\(info.name) \(info.version)"
                 launchButton.enabled = true
+            } else {
+                appLabel.stringValue = ""
+                launchButton.enabled = false
             }
         }
     }
-    
-    var iOSVersion: String?
     
     @IBOutlet weak var devicePopUp: NSPopUpButton!
     
@@ -47,7 +48,7 @@ class LauncherViewController: NSViewController {
     func loadLastLaunchInfo() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let path = defaults.objectForKey(DefaultsKeys.AppPath.rawValue) as String? {
-            updateWithAppAtPath(path)
+            self.appInfo = AppInfo(path: path)
         }
         
         if let deviceTitle = defaults.objectForKey(DefaultsKeys.Device.rawValue) as? String {
@@ -60,7 +61,7 @@ class LauncherViewController: NSViewController {
     
     func saveLaunchInfo() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(appPath, forKey: DefaultsKeys.AppPath.rawValue)
+        defaults.setObject(appInfo?.path, forKey: DefaultsKeys.AppPath.rawValue)
         defaults.setObject(devicePopUp.titleOfSelectedItem, forKey: DefaultsKeys.Device.rawValue)
         
         defaults.synchronize()
@@ -77,49 +78,44 @@ class LauncherViewController: NSViewController {
         
         if clicked == NSFileHandlingPanelOKButton {
             if let path = panel.URL?.path {
-                if !updateWithAppAtPath(path) {
+                if let appInfo = AppInfo(path: path) {
+                    self.appInfo = appInfo
+                } else {
                     displayInvalidAppAlert()
                 }
             }
         }
     }
     
-    func updateWithAppAtPath(path: String) -> Bool {
-        let fileManager = NSFileManager.defaultManager()
-        let plistPath = path.stringByAppendingPathComponent("Info.plist")
-        
-        if let plistURL = NSURL(fileURLWithPath: plistPath) {
-            if let plist = NSDictionary(contentsOfURL: plistURL) {
-                if let sdkName = plist["DTSDKName"] as? String {
-                    let simulatorPrefix = "iphonesimulator"
-                    if sdkName.hasPrefix(simulatorPrefix) {
-                        appPath = path
-                        iOSVersion = sdkName.substringFromIndex(simulatorPrefix.endIndex)
-                        return true
-                    }
-                }
+    @IBAction func launchClicked(sender: NSButton) {
+        if let appInfo = appInfo {
+            self.appInfo = AppInfo(path: appInfo.path)
+            if let updatedInfo = self.appInfo {
+                let device = devices[devicePopUp.indexOfSelectedItem]
+                SimulatorLauncher.launch(info: updatedInfo, device: device)
+                saveLaunchInfo()
+            } else {
+                displayInvalidPathAlert()
             }
         }
-        
-        return false
     }
     
     func displayInvalidAppAlert() {
+        displayAlert(message: "Invalid App", description: "The App you selected does not run on the iOS Simulator.")
+    }
+    
+    func displayInvalidPathAlert() {
+        displayAlert(message: "Invalid App Location", description: "The location of the App you specified is no longer valid.")
+    }
+    
+    func displayAlert(#message: String, description: String) {
         let alert = NSAlert()
         alert.addButtonWithTitle("Dismiss")
-        alert.messageText = "Invalid App"
-        alert.informativeText = "The App you selected does not run on the iOS Simulator."
+        alert.messageText = message
+        alert.informativeText = description
         
         if let window = view.window {
             alert.beginSheetModalForWindow(window, completionHandler: nil)
-        }
-    }
-    
-    @IBAction func launchClicked(sender: NSButton) {
-        if let path = appPath {
-            let device = devices[devicePopUp.indexOfSelectedItem]
-            SimulatorLauncher.launch(path: path, device: device, iOSVersion: iOSVersion)
-            saveLaunchInfo()
         }
     }
 
