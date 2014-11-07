@@ -42,7 +42,13 @@ class LauncherViewController: NSViewController {
         devicePopUp.removeAllItems()
         devicePopUp.addItemsWithTitles(devices.map { $0.displayName } )
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "launcherViewReceivedDraggedPath:", name: LauncherViewReceivedDraggedPathNotification, object: view)
+        
         loadLastLaunchInfo()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func loadLastLaunchInfo() {
@@ -83,6 +89,14 @@ class LauncherViewController: NSViewController {
                 } else {
                     displayInvalidAppAlert()
                 }
+            }
+        }
+    }
+    
+    func launcherViewReceivedDraggedPath(notification: NSNotification) {
+        if let path = notification.userInfo?["path"] as? String {
+            if let appInfo = AppInfo(path: path) {
+                self.appInfo = appInfo
             }
         }
     }

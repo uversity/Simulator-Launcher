@@ -40,4 +40,8 @@ struct AppInfo {
         return nil
     }
     
+    static func isValidPath(path: String) -> Bool {
+        return AppInfo(path: path) == nil ? false : true
+    }
+    
 }
