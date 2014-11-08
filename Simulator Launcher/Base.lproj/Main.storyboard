@@ -701,23 +701,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6fk-sT-P8h">
-                                <rect key="frame" x="166" y="71" width="73" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="pYh-yV-aSl" id="MRK-Oa-8CS">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="Kzx-Mg-Ijn">
-                                        <items>
-                                            <menuItem title="Item 1" state="on" id="pYh-yV-aSl"/>
-                                            <menuItem title="Item 2" id="kRB-sA-9VB"/>
-                                            <menuItem title="Item 3" id="udh-Fk-svT"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="deviceSelected:" target="XfG-lQ-9wD" id="GCt-eY-5Au"/>
-                                </connections>
-                            </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4qd-yE-169">
                                 <rect key="frame" x="18" y="223" width="467" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click Browse to select an App to launch, or drag the App into this window." placeholderString="" id="ps4-rI-rHy">
@@ -726,36 +709,57 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-jQ-gKJ">
-                                <rect key="frame" x="236" y="74" width="30" height="21"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1kw-jQ-gKJ">
+                                <rect key="frame" x="168" y="74" width="166" height="21"/>
+                                <subviews>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6fk-sT-P8h" userLabel="Device Pop Up">
+                                        <rect key="frame" x="-2" y="-3" width="73" height="26"/>
+                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="pYh-yV-aSl" id="MRK-Oa-8CS">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="Kzx-Mg-Ijn">
+                                                <items>
+                                                    <menuItem title="Item 1" state="on" id="pYh-yV-aSl"/>
+                                                    <menuItem title="Item 2" id="kRB-sA-9VB"/>
+                                                    <menuItem title="Item 3" id="udh-Fk-svT"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="deviceSelected:" target="XfG-lQ-9wD" id="GCt-eY-5Au"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99x-Mc-tqo" userLabel="iOS Version Pop Up">
+                                        <rect key="frame" x="96" y="-3" width="73" height="26"/>
+                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="B9r-5F-Uup" id="VO4-k1-y1q">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="LaN-61-eWb">
+                                                <items>
+                                                    <menuItem title="Item 1" state="on" id="B9r-5F-Uup"/>
+                                                    <menuItem title="Item 2" id="pfQ-Yr-0Ew"/>
+                                                    <menuItem title="Item 3" id="LaH-Bd-50L"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                    </popUpButton>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="LFS-il-lr6"/>
-                                    <constraint firstAttribute="width" constant="30" id="l6B-gq-3Wh"/>
+                                    <constraint firstItem="6fk-sT-P8h" firstAttribute="top" secondItem="1kw-jQ-gKJ" secondAttribute="top" id="1pJ-9w-aqu"/>
+                                    <constraint firstAttribute="bottom" secondItem="6fk-sT-P8h" secondAttribute="bottom" id="5z3-pt-wPg"/>
+                                    <constraint firstAttribute="bottom" secondItem="99x-Mc-tqo" secondAttribute="bottom" id="X1T-1y-S03"/>
+                                    <constraint firstItem="6fk-sT-P8h" firstAttribute="leading" secondItem="1kw-jQ-gKJ" secondAttribute="leading" id="bfS-FV-5p1"/>
+                                    <constraint firstItem="99x-Mc-tqo" firstAttribute="leading" secondItem="6fk-sT-P8h" secondAttribute="trailing" constant="30" id="ncc-aq-VjF"/>
+                                    <constraint firstItem="99x-Mc-tqo" firstAttribute="top" secondItem="1kw-jQ-gKJ" secondAttribute="top" id="ufk-a4-pz8"/>
+                                    <constraint firstAttribute="trailing" secondItem="99x-Mc-tqo" secondAttribute="trailing" id="w9f-YP-IWZ"/>
                                 </constraints>
                             </customView>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99x-Mc-tqo">
-                                <rect key="frame" x="264" y="71" width="73" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="B9r-5F-Uup" id="VO4-k1-y1q">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="LaN-61-eWb">
-                                        <items>
-                                            <menuItem title="Item 1" state="on" id="B9r-5F-Uup"/>
-                                            <menuItem title="Item 2" id="pfQ-Yr-0Ew"/>
-                                            <menuItem title="Item 3" id="LaH-Bd-50L"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="NTF-18-byP" firstAttribute="top" secondItem="1kw-jQ-gKJ" secondAttribute="bottom" constant="30" id="2CA-gs-JXK"/>
                             <constraint firstItem="4qd-yE-169" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="2FW-P3-B3r"/>
                             <constraint firstItem="1kw-jQ-gKJ" firstAttribute="top" secondItem="Olz-CJ-tUo" secondAttribute="bottom" constant="30" id="4cu-eK-NrM"/>
-                            <constraint firstItem="99x-Mc-tqo" firstAttribute="centerY" secondItem="1kw-jQ-gKJ" secondAttribute="centerY" id="5VE-aI-yhX"/>
-                            <constraint firstItem="99x-Mc-tqo" firstAttribute="leading" secondItem="1kw-jQ-gKJ" secondAttribute="trailing" id="E9C-by-dM5"/>
                             <constraint firstItem="4qd-yE-169" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="EsO-aa-lMw"/>
-                            <constraint firstItem="1kw-jQ-gKJ" firstAttribute="leading" secondItem="6fk-sT-P8h" secondAttribute="trailing" id="HA9-gp-xIB"/>
                             <constraint firstAttribute="centerX" secondItem="1kw-jQ-gKJ" secondAttribute="centerX" constant="0.5" id="HOr-TU-Heh"/>
                             <constraint firstItem="m1n-za-LlX" firstAttribute="top" secondItem="4qd-yE-169" secondAttribute="bottom" constant="30" id="NAW-t5-gUk"/>
                             <constraint firstAttribute="trailing" secondItem="4qd-yE-169" secondAttribute="trailing" constant="20" id="aFI-Tl-yvn"/>
@@ -763,7 +767,6 @@
                             <constraint firstAttribute="trailing" secondItem="Olz-CJ-tUo" secondAttribute="trailing" constant="20" id="ggZ-Xi-aXz"/>
                             <constraint firstItem="Olz-CJ-tUo" firstAttribute="top" secondItem="m1n-za-LlX" secondAttribute="bottom" constant="30" id="qaU-N4-5AR"/>
                             <constraint firstAttribute="centerX" secondItem="NTF-18-byP" secondAttribute="centerX" id="rbv-DI-piB"/>
-                            <constraint firstItem="6fk-sT-P8h" firstAttribute="centerY" secondItem="1kw-jQ-gKJ" secondAttribute="centerY" id="wxQ-i6-WJw"/>
                             <constraint firstItem="Olz-CJ-tUo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="yzj-rU-cGA"/>
                         </constraints>
                     </view>
