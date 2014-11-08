@@ -8,14 +8,45 @@
 
 import Foundation
 
+private var outputObserver: NSObjectProtocol? = nil
+
+private let launchPath = NSBundle.mainBundle().pathForResource("ios-sim", ofType: nil)!
+
 class SimulatorLauncher {
     
-    class func launch(#info: AppInfo, device: Device) {
-        let deviceTypeID = "\(device.rawValue), \(info.iOSVersion)"
+    class func launch(#info: AppInfo, device: Device, iOSVersion: String) {
+        let deviceTypeID = "\(device.id), \(iOSVersion)"
         
         let arguments = ["launch", info.path, "--devicetypeid", deviceTypeID, "--exit"]
-        let launchPath = NSBundle.mainBundle().pathForResource("ios-sim", ofType: nil)
-        NSTask.launchedTaskWithLaunchPath(launchPath!, arguments: arguments)
+        NSTask.launchedTaskWithLaunchPath(launchPath, arguments: arguments)
+    }
+    
+    class func loadDevices() {
+        let task = NSTask()
+        task.launchPath = launchPath
+        task.arguments = ["showdevicetypes"]
+        
+        let outputPipe = NSPipe()
+        outputPipe.fileHandleForReading.readToEndOfFileInBackgroundAndNotify()
+        task.standardError = outputPipe
+        
+        outputObserver = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleReadToEndOfFileCompletionNotification, object: outputPipe.fileHandleForReading, queue: nil) { notification in
+            self.removeObserver()
+            if let readData = notification.userInfo?[NSFileHandleNotificationDataItem]? as? NSData {
+                if let dataString = String(CString: UnsafePointer<CChar>(readData.bytes), encoding: NSUTF8StringEncoding) {
+                    Device.processDeviceStrings(dataString.componentsSeparatedByString("\n"))
+                }
+            }
+        }
+        
+        task.launch()
+    }
+    
+    class func removeObserver() {
+        if let observer = outputObserver {
+            NSNotificationCenter.defaultCenter().removeObserver(observer)
+            outputObserver = nil
+        }
     }
     
 }
