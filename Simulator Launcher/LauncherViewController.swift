@@ -38,6 +38,8 @@ class LauncherViewController: NSViewController {
     
     var devices = [Device]()
     
+    let defaultDeviceTitle = "iPhone 6"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,11 +64,11 @@ class LauncherViewController: NSViewController {
             self.appInfo = AppInfo(path: path)
         }
         
-        if let deviceTitle = defaults.objectForKey(DefaultsKeys.DeviceName.rawValue) as? String {
-            let index = devicePopUp.indexOfItemWithTitle(deviceTitle)
-            if index != -1 {
-                devicePopUp.selectItemAtIndex(index)
-            }
+        let savedDeviceTitle = defaults.objectForKey(DefaultsKeys.DeviceName.rawValue) as? String
+        let deviceTitle = savedDeviceTitle ?? defaultDeviceTitle
+        let index = devicePopUp.indexOfItemWithTitle(deviceTitle)
+        if index != -1 {
+            devicePopUp.selectItemAtIndex(index)
         }
         
         updateiOSPopUp()
