@@ -107,7 +107,7 @@ class LauncherViewController: NSViewController {
             }
         }
         
-        iOSPopUp.selectItemAtIndex(device.supportediOSVersions.count - 1)
+        iOSPopUp.selectItemAtIndex(iOSPopUp.numberOfItems - 1)
     }
 
     @IBAction func deviceSelected(sender: NSPopUpButton) {
