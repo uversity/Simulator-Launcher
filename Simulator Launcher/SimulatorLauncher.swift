@@ -28,7 +28,7 @@ class SimulatorLauncher {
         
         let outputPipe = NSPipe()
         outputPipe.fileHandleForReading.readToEndOfFileInBackgroundAndNotify()
-        task.standardError = outputPipe
+        task.standardOutput = outputPipe
         
         outputObserver = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleReadToEndOfFileCompletionNotification, object: outputPipe.fileHandleForReading, queue: nil) { notification in
             self.removeObserver()

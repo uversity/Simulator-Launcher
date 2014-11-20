@@ -10,13 +10,13 @@
 		334E484F1A0BFBAD004070CD /* SimulatorLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E484E1A0BFBAD004070CD /* SimulatorLauncher.swift */; };
 		334E48511A0C35C1004070CD /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E48501A0C35C1004070CD /* AppInfo.swift */; };
 		334E48531A0C48EF004070CD /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E48521A0C48EF004070CD /* LauncherView.swift */; };
+		336E243D1A1E9EDF00F3E349 /* ios-sim in Resources */ = {isa = PBXBuildFile; fileRef = 336E243C1A1E9EDF00F3E349 /* ios-sim */; };
 		33D4F0D81A04586900B0BAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0D71A04586900B0BAE6 /* AppDelegate.swift */; };
 		33D4F0DA1A04586900B0BAE6 /* LauncherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0D91A04586900B0BAE6 /* LauncherViewController.swift */; };
 		33D4F0DC1A04586900B0BAE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D4F0DB1A04586900B0BAE6 /* Images.xcassets */; };
 		33D4F0DF1A04586900B0BAE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D4F0DD1A04586900B0BAE6 /* Main.storyboard */; };
 		33D4F0EB1A04586900B0BAE6 /* Simulator_LauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0EA1A04586900B0BAE6 /* Simulator_LauncherTests.swift */; };
 		33D4F0F61A04588B00B0BAE6 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4F0F41A04588B00B0BAE6 /* Device.swift */; };
-		33D4F0F71A04588B00B0BAE6 /* ios-sim in Resources */ = {isa = PBXBuildFile; fileRef = 33D4F0F51A04588B00B0BAE6 /* ios-sim */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,7 @@
 		334E484E1A0BFBAD004070CD /* SimulatorLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorLauncher.swift; sourceTree = "<group>"; };
 		334E48501A0C35C1004070CD /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		334E48521A0C48EF004070CD /* LauncherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherView.swift; sourceTree = "<group>"; };
+		336E243C1A1E9EDF00F3E349 /* ios-sim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "ios-sim"; sourceTree = "<group>"; };
 		33D4F0D21A04586900B0BAE6 /* Simulator Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simulator Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D4F0D61A04586900B0BAE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33D4F0D71A04586900B0BAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		33D4F0E91A04586900B0BAE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33D4F0EA1A04586900B0BAE6 /* Simulator_LauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simulator_LauncherTests.swift; sourceTree = "<group>"; };
 		33D4F0F41A04588B00B0BAE6 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		33D4F0F51A04588B00B0BAE6 /* ios-sim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "ios-sim"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				33D4F0F41A04588B00B0BAE6 /* Device.swift */,
 				33D4F0DB1A04586900B0BAE6 /* Images.xcassets */,
 				33D4F0DD1A04586900B0BAE6 /* Main.storyboard */,
-				33D4F0F51A04588B00B0BAE6 /* ios-sim */,
+				336E243C1A1E9EDF00F3E349 /* ios-sim */,
 				33D4F0D51A04586900B0BAE6 /* Supporting Files */,
 			);
 			path = "Simulator Launcher";
@@ -204,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33D4F0F71A04588B00B0BAE6 /* ios-sim in Resources */,
+				336E243D1A1E9EDF00F3E349 /* ios-sim in Resources */,
 				33D4F0DC1A04586900B0BAE6 /* Images.xcassets in Resources */,
 				33D4F0DF1A04586900B0BAE6 /* Main.storyboard in Resources */,
 			);
