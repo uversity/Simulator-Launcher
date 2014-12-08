@@ -1,9 +1,9 @@
 //
-//  Devices.swift
-//  SimulatorLauncher
+//  Device.swift
+//  Simulator Launcher
 //
 //  Created by Daniel Resnick on 9/26/14.
-//  Copyright (c) 2014 Daniel Resnick. All rights reserved.
+//  Copyright (c) 2014 Uversity. All rights reserved.
 //
 
 import Cocoa
