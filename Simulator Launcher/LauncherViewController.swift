@@ -50,6 +50,7 @@ class LauncherViewController: NSViewController {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "launcherViewReceivedDraggedPath:", name: LauncherViewReceivedDraggedPathNotification, object: view)
         notificationCenter.addObserver(self, selector: "devicesLoaded:", name: DevicesLoadedNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "deviceLoadingFailed:", name: DeviceLoadingFailedNotification, object: nil)
         
         SimulatorLauncher.loadDevices()
     }
@@ -157,6 +158,18 @@ class LauncherViewController: NSViewController {
         loadLastLaunchInfo()
     }
     
+    func deviceLoadingFailed(notification: NSNotification) {
+        let description = "Open Xcode, select \"Window\", then \"Devices\". In the Devices window, " +
+        "if there is no \"Simulator\" section (or if it exists but contains no devices), click the " +
+        "plus icon in the bottom left of the window, and choose the device you would like to add. " +
+        "After adding a device, relaunch this app."
+        
+        displayAlert(message: "Simulator Device Loading Failed", description: description) {
+            _ in
+            NSApplication.sharedApplication().terminate(self)
+        }
+    }
+    
     func launcherViewReceivedDraggedPath(notification: NSNotification) {
         if let path = notification.userInfo?["path"] as? String {
             if let appInfo = AppInfo(path: path) {
@@ -173,14 +186,14 @@ class LauncherViewController: NSViewController {
         displayAlert(message: "Invalid App Location", description: "The location of the App you specified is no longer valid.")
     }
     
-    func displayAlert(#message: String, description: String) {
+    func displayAlert(#message: String, description: String, completion: ((NSModalResponse) -> Void)? = nil) {
         let alert = NSAlert()
         alert.addButtonWithTitle("Dismiss")
         alert.messageText = message
         alert.informativeText = description
         
         if let window = view.window {
-            alert.beginSheetModalForWindow(window, completionHandler: nil)
+            alert.beginSheetModalForWindow(window, completionHandler: completion)
         }
     }
 

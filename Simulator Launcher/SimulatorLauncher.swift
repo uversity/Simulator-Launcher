@@ -28,11 +28,16 @@ class SimulatorLauncher {
         
         let outputPipe = NSPipe()
         outputPipe.fileHandleForReading.readToEndOfFileInBackgroundAndNotify()
-        task.standardOutput = outputPipe
+        task.standardError = outputPipe
         
         outputObserver = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleReadToEndOfFileCompletionNotification, object: outputPipe.fileHandleForReading, queue: nil) { notification in
             self.removeObserver()
             if let readData = notification.userInfo?[NSFileHandleNotificationDataItem]? as? NSData {
+                if readData.bytes == nil {
+                    NSNotificationCenter.defaultCenter().postNotificationName(DeviceLoadingFailedNotification, object: nil)
+                    return
+                }
+                
                 if let dataString = String(CString: UnsafePointer<CChar>(readData.bytes), encoding: NSUTF8StringEncoding) {
                     Device.processDeviceStrings(dataString.componentsSeparatedByString("\n"))
                 }

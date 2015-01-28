@@ -9,6 +9,7 @@
 import Cocoa
 
 let DevicesLoadedNotification = "DevicesLoadedNotification"
+let DeviceLoadingFailedNotification = "DeviceLoadingFailedNotification"
 
 private var devices = [String: Device]()
 
