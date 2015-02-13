@@ -55,7 +55,7 @@ class Device {
     }
     
     class func allDevices() -> [Device] {
-        return sorted(Array(devices.values)) { $0.name.lowercaseString < $1.name.lowercaseString }
+        return sorted(devices.values) { $0.name.lowercaseString < $1.name.lowercaseString }
     }
     
 }
