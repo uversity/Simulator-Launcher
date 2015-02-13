@@ -21,7 +21,7 @@ class SimulatorLauncher {
         NSTask.launchedTaskWithLaunchPath(launchPath, arguments: arguments)
     }
     
-    class func loadDevices() {
+    class func loadDevices(result: [Device]? -> Void) {
         let task = NSTask()
         task.launchPath = launchPath
         task.arguments = ["showdevicetypes"]
@@ -33,15 +33,15 @@ class SimulatorLauncher {
         outputObserver = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleReadToEndOfFileCompletionNotification, object: outputPipe.fileHandleForReading, queue: nil) { notification in
             self.removeObserver()
             if let readData = notification.userInfo?[NSFileHandleNotificationDataItem]? as? NSData {
-                if readData.bytes == nil {
-                    NSNotificationCenter.defaultCenter().postNotificationName(DeviceLoadingFailedNotification, object: nil)
-                    return
-                }
-                
-                if let dataString = String(CString: UnsafePointer<CChar>(readData.bytes), encoding: NSUTF8StringEncoding) {
-                    Device.processDeviceStrings(dataString.componentsSeparatedByString("\n"))
+                if readData.bytes != nil {
+                    if let dataString = String(CString: UnsafePointer<CChar>(readData.bytes), encoding: NSUTF8StringEncoding) {
+                        result(Device.processDeviceStrings(dataString.componentsSeparatedByString("\n")))
+                        return
+                    }
                 }
             }
+            
+            result(nil)
         }
         
         task.launch()

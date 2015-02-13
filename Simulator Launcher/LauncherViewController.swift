@@ -49,10 +49,14 @@ class LauncherViewController: NSViewController {
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "launcherViewReceivedDraggedPath:", name: LauncherViewReceivedDraggedPathNotification, object: view)
-        notificationCenter.addObserver(self, selector: "devicesLoaded:", name: DevicesLoadedNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "deviceLoadingFailed:", name: DeviceLoadingFailedNotification, object: nil)
         
-        SimulatorLauncher.loadDevices()
+        SimulatorLauncher.loadDevices { devices in
+            if let devices = devices {
+                self.devicesLoaded(devices)
+            } else {
+                self.deviceLoadingFailed()
+            }
+        }
     }
     
     deinit {
@@ -149,8 +153,8 @@ class LauncherViewController: NSViewController {
         }
     }
     
-    func devicesLoaded(notification: NSNotification) {
-        devices = Device.allDevices()
+    func devicesLoaded(devices: [Device]) {
+        self.devices = devices
         
         devicePopUp.removeAllItems()
         devicePopUp.addItemsWithTitles(devices.map { $0.name })
@@ -158,7 +162,7 @@ class LauncherViewController: NSViewController {
         loadLastLaunchInfo()
     }
     
-    func deviceLoadingFailed(notification: NSNotification) {
+    func deviceLoadingFailed() {
         let description = "Open Xcode, select \"Window\", then \"Devices\". In the Devices window, " +
         "if there is no \"Simulator\" section (or if it exists but contains no devices), click the " +
         "plus icon in the bottom left of the window, and choose the device you would like to add. " +

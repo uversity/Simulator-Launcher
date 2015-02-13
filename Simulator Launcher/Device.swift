@@ -8,11 +8,6 @@
 
 import Cocoa
 
-let DevicesLoadedNotification = "DevicesLoadedNotification"
-let DeviceLoadingFailedNotification = "DeviceLoadingFailedNotification"
-
-private var devices = [String: Device]()
-
 class Device {
     
     let id: String
@@ -36,7 +31,9 @@ class Device {
         supportediOSVersions.append(iOSVersion)
     }
     
-    class func processDeviceStrings(deviceStrings: [String]) {
+    class func processDeviceStrings(deviceStrings: [String]) -> [Device] {
+        var devices: [String: Device] = [:]
+        
         for deviceString in deviceStrings {
             let components = deviceString.componentsSeparatedByString(", ")
             if components.count == 2 {
@@ -51,10 +48,6 @@ class Device {
             }
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName(DevicesLoadedNotification, object: nil)
-    }
-    
-    class func allDevices() -> [Device] {
         return sorted(devices.values) { $0.name.lowercaseString < $1.name.lowercaseString }
     }
     
