@@ -65,7 +65,7 @@ class LauncherViewController: NSViewController {
     
     func loadLastLaunchInfo() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        if let path = defaults.objectForKey(DefaultsKeys.AppPath.rawValue) as String? {
+        if let path = defaults.objectForKey(DefaultsKeys.AppPath.rawValue) as? String {
             self.appInfo = AppInfo(path: path)
         }
         
@@ -169,8 +169,7 @@ class LauncherViewController: NSViewController {
         "After adding a device, relaunch this app."
         
         displayAlert(message: "Simulator Device Loading Failed", description: description) {
-            _ in
-            NSApplication.sharedApplication().terminate(self)
+            _ in NSApplication.sharedApplication().terminate(self)
         }
     }
     
